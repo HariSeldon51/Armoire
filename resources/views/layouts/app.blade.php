@@ -84,7 +84,7 @@
             }
 
             #nav-drawer {
-                background-image: url(img/NavDrawerBG.png);
+                background-image: url('img/NavDrawerBG.png');
                 color: #ffffff;
                 
                 height: 225px;
