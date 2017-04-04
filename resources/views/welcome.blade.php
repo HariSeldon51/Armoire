@@ -8,7 +8,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Idex Solutions Client Access | pre-Alpha</title>
+        <title>Armoire</title>
         <!-- The normalizing css stylesheet -->
         <link rel="stylesheet" href="css/normalize.min.css">
         
@@ -50,7 +50,7 @@
         
         <paper-toolbar id="toolbar">
 
-            <paper-item>Portex - The flexible web portal solution</paper-item>
+            <paper-item>Armoire - The flexible web portal solution</paper-item>
             <span class="flex"></span>
 
             @if (Auth::guest())
