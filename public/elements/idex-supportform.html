@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Imports polymer -->
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <link href="../bower_components/iron-pages/iron-pages.html" rel="import">
+    <link href="../bower_components/paper-tabs/paper-tabs.html" rel="import">
+    <link href="../bower_components/paper-card/paper-card.html" rel="import">
+    <link href="../bower_components/paper-button/paper-button.html" rel="import">
+    <link href="idex-supportpage.html" rel="import">    
+</head>
+
+<!-- Defines element markup -->
+<dom-module id="idex-supportform">
+    
+    <template>        
+        <style>
+            paper-tabs {
+                --paper-tabs-selection-bar-color: #E59740;
+            }
+            paper-tab {
+                background-color: #196426;
+                color: #fff;
+                --paper-tab-ink: #A4D4A8;
+            }
+            paper-tab.iron-selected {
+                background-color: #2EA542;
+            }
+        </style>
+                
+        <paper-card class="support-form" >
+            <form action=""> 
+                <paper-tabs selected="{{selected}}">
+                    <paper-tab>Start</paper-tab>
+                    <paper-tab>Setup</paper-tab>
+                    <paper-tab>Describe</paper-tab>
+                    <paper-tab>Attach</paper-tab>
+                    <paper-tab>Review</paper-tab>
+                </paper-tabs>
+
+                <iron-pages selected="{{selected}}" 
+                            on-iron-select="_pageSelectHandler"
+                            id="idexpages">
+                    
+                    <idex-supportpage>
+                        <div class="page">
+                        <fieldset id="start">
+                            <legend for="start" class="heading"><h2>Pre-Submission:</h2></legend>
+                            <p>Have you performed the following due-diligence before placing this support request/defect report?</p>
+                            <input type="checkbox" id="clienttest" value="client" />Tested on more than one client.<br />
+                            <input type="checkbox" id="vanillatest" value="vanilla" />Tested on a vanilla installation.<br />
+                        </fieldset>
+                        <fieldset id="contact">
+                            <legend for="contact" class="heading"><h2>Submitter Information:</h2></legend>
+                            <div class="group">
+                                <div class="item half"><legend for="name">Full Name:</legend><input type="text" id="name" /></div>
+                                <div class="item half"><legend for="email">Email Address:</legend><input type="email" id="email" /></div>
+                                <div class="item half"><legend for="phone">Phone Number:</legend><input type="tel" id="phone" /></div>
+                                <div class="item half"><legend for="company">Company Name:</legend><input type="text" id="company" /></div>
+                            </div>
+                        </fieldset>
+                        </div>
+                    </idex-supportpage>
+
+                    <idex-supportpage>
+                        <div class="page">
+                        <fieldset id="setup">
+                            <legend for="setup" class="heading"><h2>Software/Hardware Environment:</h2></legend>
+                            <div class="group">
+                                <div class="item half"><legend for="portfolio">Software Portfolio:</legend><select id="portfolio">
+                                    <optgroup label="V5 Products">
+                                        <option value="catia-v5">CATIA V5</option>
+                                        <option value="plmexpress-v5">CATIA V5 PLM Express - Edition 3</option>
+                                        <option value="enoviadmu-v5">CATIA&#x2F;ENOVIA V5</option>
+                                        <option value="smarteam-v5">ENOVIA SmarTeam V5</option>
+                                        <option value="enoviavplm-v5">ENOVIA VPLM V5</option>
+                                        <option value="delmia-v5">DELMIA V5</option>
+                                        <option value="caa-v5">CAA V5</option>
+                                    </optgroup>
+                                    <optgroup label="V6 Products">
+                                        <option value="catia-v6">CATIA V6</option>
+                                        <option value="enovia-v6">ENOVIA V6</option>
+                                        <option value="delmia-v6">DELMIA V6</option>
+                                        <option value="oncloud-3dx">3DExperience - On Cloud</option>
+                                        <option value="onpremise-3dx">3DExperience - On Premise</option>
+                                    </optgroup>
+                                    <optgroup label="Other Products">
+                                        <option value="simulayt-v5">Simulayt for V5</option>
+                                        <option value="catia-composer">CATIA Composer (formerly 3DVia Composer)</option>
+                                    </optgroup>
+                                </select></div>
+                                <div class="item half"><legend for="release">Software Release Level:</legend><input type="text" id="release" /></div>
+                                <div class="item"><legend for="servicepack">Software Service Pack:</legend><input type="text" id="servicepack" /></div>
+                                <div class="item"><legend for="hotfix">Software Hotfix:</legend><input type="text" id="hotfix" /></div>
+                                <div class="item"><legend for="os">Operating System:</legend><input type="text" id="os" /></div>
+                                <div class="item"><legend for="browser">Internet Browser:</legend><input type="text" id="browser" /></div>
+                                <div class="item half"><legend for="configuration">Is your hardware configuration DS Certified? (Check <a href="http://www.3ds.com/support/certified-hardware/" target="_blank">here</a>)</legend><select id="configuration">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                    <option value="unsure">Unsure</option></select></div>
+                                <div class="item half"><legend for="graphicscard">Graphics Card:</legend><input type="text" id="graphicscard" /></div>
+                            </div>
+                        </fieldset>
+                        </div>
+                    </idex-supportpage>
+                        
+                    <idex-supportpage>
+                        <div class="page">
+                        <fieldset id="describe">
+                            <legend for="describe" class="heading"><h2>Issue Description:</h2></legend>
+                            <div class="group">
+                                <div class="item long"><legend for="subject">Short Summary:</legend><input type="text" id="subject" /></div>
+                                <div class="item"><legend for="urgency">Urgency:</legend><select id="urgency">
+                                    <option value="low">Low - Minimal or no impact to operations or a way to circumvent the problem has been found.</option>
+                                    <option value="medium">Medium - Service available with some non-critical functional restrictions.</option>
+                                    <option value="high">High - Operations are severely restricted by the problem, but a work-around exists.</option>
+                                    <option value="critical">Urgent - Unable to use the product. No work-around is possible and there are critical impacts on operations.</option>
+                                    </select></div>
+                                <div class="item half"><legend for="description">Detailed Description:</legend><textarea id="description" rows="6" wrap="soft"></textarea></div>
+                                <div class="item half"><legend for="steps">Steps to Replicate the Issue:</legend><textarea id="steps" rows="6" wrap="soft"></textarea></div>
+                            </div>
+                        </fieldset>
+                        </div>
+                    </idex-supportpage>
+                        
+                    <idex-supportpage>
+                        <div class="page">
+                        <fieldset id="attach">
+
+                        </fieldset>
+                        </div>
+                    </idex-supportpage>
+                        
+                    <idex-supportpage>
+                        <div class="page">
+                        <fieldset id="review">
+
+                        </fieldset>
+                        </div>
+                    </idex-supportpage>
+
+                </iron-pages>
+                <div class="process-nav">
+                    <paper-button id="submitbutton" on-tap="_handleSubmit" class="actionbutton" raised hidden>Submit</paper-button>
+                    <paper-button id="proceedbutton" on-tap="_handleNext" class="boldbutton" raised>Next</paper-button>
+                    <paper-button id="returnbutton" on-tap="_handleBack" class="subtlebutton" raised hidden >Back</paper-button>
+                </div>
+            
+            </form>
+        </paper-card>
+               
+    </template>
+    
+    <!-- Registers custom element -->
+    <script>
+    Polymer({
+        is: 'idex-supportform',
+        
+        properties: {
+            selected: {
+                type: String,
+                value: "0"
+            }
+        },
+        
+        _pageSelectHandler: function() {
+            if (this.selected > 0) {
+                this.$.returnbutton.removeAttribute("hidden");
+            } else { this.$.returnbutton.setAttribute("hidden", true); }
+            
+            if (this.selected >= (this.$.idexpages.items.length - 1)) {
+                this.$.submitbutton.removeAttribute("hidden");
+                this.$.proceedbutton.setAttribute("hidden", true);
+            } else { 
+                this.$.submitbutton.setAttribute("hidden", true); 
+                this.$.proceedbutton.removeAttribute("hidden");
+            }
+        },
+        
+        _handleNext: function() {
+            this.selected++;
+        },
+        
+        _handleBack: function() {
+            this.selected--;
+        },
+    
+        // Fires when an instance of the element is created
+        created: function() {
+        },
+    
+        // Fires when the local DOM has been fully prepared
+        ready: function() {},
+    
+        // Fires when the element was inserted into the document
+        attached: function() {},
+    
+        // Fires when the element was removed from the document
+        detached: function() {},
+    
+        // Fires when an attribute was added, removed, or updated
+        attributeChanged: function(name, type) {},
+    });
+    </script>
+</dom-module>

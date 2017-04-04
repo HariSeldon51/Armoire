@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Imports polymer -->
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
+</head>
+
+<!-- Defines element markup -->
+<dom-module id="isca-moduleview">
+    
+    <style>
+        
+        :host {
+            width: inherit;
+        }
+        
+        .searchWrapper {
+            padding: 24px;
+        }
+        
+        .search-filter-group {
+            display: flex;
+        }
+                
+        #searchView {
+            width: inherit;
+            --paper-card-header-color: #fff;
+            --paper-card-header: {
+                background-color: #2BA242;
+            }
+        } 
+        
+    </style>
+    
+    <template>
+        
+        <paper-card heading="{{heading}}" id="searchView">
+            <div class="searchWrapper">
+                <iron-ajax id="ajax" 
+                           url="../php/iscaRequest.php" 
+                           params="[[catParams]]"
+                           handle-as="json" 
+                           on-response="handleResponse" 
+                           debounce-duration="300">
+                </iron-ajax>
+                <form is="iron-form" id="form" class="searchForm" method="post" action="../php/iscaRequest.php">     
+                    <legend for="searchScope">Search By: </legend>
+                    <select class="parameter" id="searchScope">
+                        <template is="dom-repeat" items="{{catArray}}">
+                            <option value='{{item.Field}}'>{{item.Field}}</option>
+                        </template>
+                    </select>
+                    <legend for="searchFilter">Search Type: </legend>
+                    <select class="parameter" id="searchFilter">
+                        <option value="includes">Contains...</option>
+                        <option value="begins">Begins with...</option>
+                        <option value="excludes"> Does not contain...</option>
+                    </select>
+                    <legend for="searchQuery">Search Phrase: </legend>
+                    <input type="text" class="parameter" id="searchQuery">
+                    <button type="submit" class="submit-button">Search</button>        
+                </form>
+            </div>
+        </paper-card>
+        
+    </template>
+    
+    <!-- Registers custom element -->
+    <script>
+    Polymer({
+        is: 'isca-moduleview',
+        
+        properties: {
+            heading: String,
+            queryType: String,
+            catParams: {
+                type: String,
+                computed: 'computeParams(heading, queryType)'
+            }
+        },
+        
+        computeParams: function(heading, query) {
+            var a = {requestType: "fields", queryType: query};
+            //console.log(a);
+            return a;
+        },
+    
+        // Fires when the local DOM has been fully prepared
+        ready: function() {
+            //console.log(this.queryType);
+        },
+        
+        handleResponse: function(ajaxResponse) {
+            this.catArray = ajaxResponse.detail.response;
+            //console.log(ajaxResponse.detail.response);
+        },
+    
+        // Fires when the element was inserted into the document
+        attached: function() {
+            this.$.ajax.generateRequest();
+        },
+    
+        // Fires when the element was removed from the document
+        detached: function() {},
+    
+        // Fires when an attribute was added, removed, or updated
+        attributeChanged: function(name, type) {},
+    });
+    </script>
+</dom-module>

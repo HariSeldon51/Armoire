@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Imports polymer -->
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    
+</head>
+
+<!-- Defines element markup -->
+<dom-module id="isca-page">
+    
+    <style>
+        
+        @media screen and (max-width: 480px) {
+            
+            #pageView {
+                width: 280px;
+            }
+        }
+        
+        @media screen and (min-width: 481px) and (max-width: 800px) {
+            
+            #pageView {
+                width: 340px;
+            }
+        }
+        
+        @media screen and (min-width: 801px) and (max-width: 960px) {
+            
+            #pageView {
+                width: 500px;
+            }
+        }
+        
+        @media screen and (min-width: 961px) and (max-width: 1120px) {
+            
+            #pageView {
+                width: 660px;
+            }
+        }
+        
+        @media screen and (min-width: 1121px) and (max-width: 1280px) {
+            
+            #pageView {
+                width: 820px;
+            }
+        }
+        
+        @media screen and (min-width: 1281px) {
+            
+            #pageView {
+                width: 980px;
+            }
+        }
+        
+        #pageView {
+            margin: 20px auto;
+        }
+        
+    </style>
+    
+    <template>
+        
+        <div id="pageView">
+            <content></content>
+        </div>
+        
+    </template>
+    
+    <!-- Registers custom element -->
+    <script>
+    Polymer({
+        is: 'isca-page',
+        
+        properties: {            
+        },
+    
+        // Fires when an instance of the element is created
+        created: function() {
+        },
+    
+        // Fires when the local DOM has been fully prepared
+        ready: function() {},
+    
+        // Fires when the element was inserted into the document
+        attached: function() {},
+    
+        // Fires when the element was removed from the document
+        detached: function() {},
+    
+        // Fires when an attribute was added, removed, or updated
+        attributeChanged: function(name, type) {},
+    });
+    </script>
+</dom-module>

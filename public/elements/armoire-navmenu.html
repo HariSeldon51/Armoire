@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Imports polymer -->
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+</head>
+
+<!-- Defines element markup -->
+<dom-module id="armoire-navmenu">
+    
+    <template>
+        <style>
+        </style>
+        
+        <iron-ajax
+            auto
+            url="https://www.googleapis.com/youtube/v3/search"
+            params='{"part":"snippet", "q":"polymer", "key": "YOUTUBE_API_KEY", "type": "video"}'
+            handle-as="json"
+            on-response="handleResponse"
+            debounce-duration="300">
+        </iron-ajax>
+        
+        @if (count($module['children']) > 0)
+
+            <paper-submenu>
+
+                <paper-item class="menu-trigger menu-select">
+                    <iron-icon icon="{{ $module['icon'] }}"></iron-icon>
+                    {{ $module['name'] }}         
+                </paper-item>
+
+                <paper-menu class="menu-content">
+
+                    @foreach ($module['children'] as $module)
+                        @include('layouts.menuItem', array('module' => $module))
+                    @endforeach
+
+                </paper-menu>
+
+            </paper-submenu>
+
+        @else
+
+    <paper-item class="menu-select">
+        <iron-icon icon="{{ $module['icon'] }}"></iron-icon>
+        {{ $module['name'] }}       
+    </paper-item>
+
+@endif
+        
+    </template>
+    
+    <!-- Registers custom element -->
+    <script>
+    Polymer({
+        is: 'armoire-navmenu',
+        
+        properties: {
+            
+        },
+    
+        // Fires when an instance of the element is created
+        created: function() {
+        },
+    
+        // Fires when the local DOM has been fully prepared
+        ready: function() {},
+    
+        // Fires when the element was inserted into the document
+        attached: function() {},
+    
+        // Fires when the element was removed from the document
+        detached: function() {},
+    
+        // Fires when an attribute was added, removed, or updated
+        attributeChanged: function(name, type) {},
+    });
+    </script>
+</dom-module>

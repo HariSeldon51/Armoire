@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../bower_components/polymer/polymer.html" rel="import">
+    
+    <!-- Element Imports -->
+    <link href="../bower_components/paper-drawer-panel/paper-drawer-panel.html" rel="import">
+    <link href="../bower_components/paper-header-panel/paper-header-panel.html" rel="import">
+    <link href="../bower_components/paper-toolbar/paper-toolbar.html" rel="import">
+    <link href="../bower_components/paper-menu/paper-menu.html" rel="import">
+    <link href="../bower_components/paper-material/paper-material.html" rel="import">
+    <link href="../bower_components/paper-card/paper-card.html" rel="import">
+    <link href="../bower_components/paper-item/paper-item.html" rel="import">
+    <link href="../bower_components/paper-button/paper-button.html" rel="import">
+    <link href="../bower_components/paper-icon-button/paper-icon-button.html" rel="import">
+    <link href="../bower_components/iron-icons/iron-icons.html" rel="import">
+    <link href="../bower_components/iron-icons/communication-icons.html" rel="import">
+    <link href="../bower_components/iron-icons/social-icons.html" rel="import">
+    <link href="../bower_components/iron-icon/iron-icon.html" rel="import">
+    <link href="../bower_components/iron-pages/iron-pages.html" rel="import">
+    <link href="../bower_components/iron-image/iron-image.html" rel="import">
+    <link href="../bower_components/iron-form/iron-form.html" rel="import">
+    <link href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html" rel="import">
+    <link href="../bower_components/paper-input/paper-input.html" rel="import">
+    <link href="../bower_components/paper-fab/paper-fab.html" rel="import">
+    <link href="../bower_components/iron-flex-layout/classes/iron-flex-layout.html" rel="import">
+    <link href="isca-page.html" rel="import">
+    <link href="isca-moduleview.html" rel="import">
+</head>
+
+<dom-module id="isca-app">
+    
+    <style>
+      
+        /* CSS rules for your element */
+        paper-toolbar {
+            background-color: #005736;
+        }
+
+        .title-icon {
+            margin-right: 1em;
+        }
+
+        .menu-select {
+            cursor: pointer;
+        }
+
+        #nav-drawer {
+            background-image: url(../img/NavDrawerBG.png);
+            height: 225px;
+            vertical-align: bottom;
+        }
+
+        #profile {
+            position: absolute;
+            bottom: 0;
+            color: #fff;
+        }
+      
+    </style>
+    
+    <template>
+      
+        <paper-drawer-panel id="body">
+            <paper-header-panel drawer mode="seamed">
+                <div class="paper-header" id="nav-drawer">
+                    <div id="profile">
+                        <paper-item>Will DeHaven (template profile)</paper-item>
+                    </div>
+                </div>
+                <paper-menu class="list" selected="0">
+                    <template is="dom-repeat" items="{{modules}}">
+                        <paper-item on-tap="handleMenuTap" index="{{index}}" class="menu-select"><iron-icon class="title-icon" icon="{{item.icon}}"></iron-icon>{{item.title}}</paper-item>
+                    </template>
+                </paper-menu>
+            </paper-header-panel>  
+            <paper-header-panel main>
+                <paper-toolbar id="toolbar">
+                    <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+                    <paper-item>Portex</paper-item>
+                    <span class="flex"></span>
+                    <paper-icon-button icon="icons:lock-outline" on-tap="handleToolbarTap" name="login-button"></paper-icon-button>
+                    <paper-icon-button icon="icons:settings" on-tap="handleToolbarTap" name="settings-button"></paper-icon-button>
+                    <paper-icon-button icon="icons:help-outline" on-tap="handleToolbarTap" name="help-button"></paper-icon-button>
+                </paper-toolbar>
+                <iron-pages id="pages" selected="0">
+                    <template is="dom-repeat" items="{{modules}}">
+                        <isca-page class="layout horizontal center-justified">
+                            <isca-moduleview heading="{{item.heading}}" query-type="{{item.type}}">
+                            </isca-moduleview>
+                        </isca-page>
+                    </template>
+                </iron-pages>
+            </paper-header-panel>
+        </paper-drawer-panel>
+      
+    </template>
+    
+    <script>
+    Polymer({
+        is: "isca-app",
+        
+        properties: { 
+        },
+        
+        ready: function(){
+            this.modules = [
+                {
+                title: "Accounts",
+                heading: "Search Accounts",
+                icon: "social:domain",
+                type: "accountQuery",
+                },
+                {
+                title: "Contacts",
+                heading: "Search Contacts",
+                icon: "social:group",
+                type: "contactQuery",
+                },
+                {
+                title: "Licenses",
+                heading: "Search Licenses",
+                icon: "icons:verified-user",
+                type: "licenseQuery",
+                },
+                {
+                title: "License Keys",
+                heading: "Search License Keys",
+                icon: "communication:vpn-key",
+                type: "keyQuery",
+                }
+            ]
+        },
+        
+        handleMenuTap: function(e, detail) {
+            var model = e.model;
+            var selectedPage = model.get('index');
+            this.$.pages.selected = selectedPage;
+            this.$.body.closeDrawer();            
+        }
+        
+    });    
+    
+    </script>
+</dom-module> 
