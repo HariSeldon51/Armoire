@@ -48,11 +48,11 @@ return [
 
         'portex_admin' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '138.68.46.161'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'armoiresys'),
-            'username' => env('DB_USERNAME', 'armoire_webapp'),
-            'password' => env('DB_PASSWORD', 'Seldon12$'),
+            'database' => env('DB_DATABASE', 'armoire_sys'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', 'f96v6jGIax2YE5JwAGfc'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
