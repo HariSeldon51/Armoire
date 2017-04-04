@@ -48,7 +48,7 @@ return [
 
         'portex_admin' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '138.68.46.161 '),
+            'host' => env('DB_HOST', '138.68.46.161'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'armoiresys'),
             'username' => env('DB_USERNAME', 'armoire_webapp'),
