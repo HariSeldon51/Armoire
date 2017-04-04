@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'armoire_admin'),
+    'default' => env('DB_CONNECTION', 'portex_admin'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,13 +46,13 @@ return [
 
     'connections' => [
 
-        'armoire_admin' => [
+        'portex_admin' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', '138.68.46.161 '),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'armoiredata'),
-            'username' => env('DB_USERNAME', 'armoire_user'),
-            'password' => env('DB_PASSWORD', 'f96v6jGIax2YE5JwAGfc'),
+            'database' => env('DB_DATABASE', 'armoiresys'),
+            'username' => env('DB_USERNAME', 'armoire_webapp'),
+            'password' => env('DB_PASSWORD', 'Seldon12$'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
