@@ -79,6 +79,14 @@
                 margin-right: 1em;
             }
             
+            paper-button {
+                background-color: var(--primary-color);
+            }
+            
+            paper-button.loud {
+                background-color: var(--accent-color);
+            }
+            
             .label {
                 padding: 1em;
             }
