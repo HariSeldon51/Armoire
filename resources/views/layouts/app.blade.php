@@ -80,6 +80,8 @@
             }
             
             paper-button {
+                color: white;
+                text-decoration: none;
                 background-color: var(--primary-color);
             }
             
