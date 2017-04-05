@@ -4,7 +4,7 @@
 
             @if (Auth::guest())
             <a href="{{ url('/login') }}" tabindex="-1">
-                <paper-button onclick="">Login</paper-button>
+                <paper-button class="teal" onclick="">Login</paper-button>
             </a>
             <a href="{{ url('/register') }}" tabindex="-1">
                 <paper-button onclick="">Register</paper-button>
