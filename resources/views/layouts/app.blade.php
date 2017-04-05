@@ -163,10 +163,11 @@
                     @endunless
 
                     <span class="title">Armoire</span>
-
+                    
+                    @unless (Auth::guest())
                     <paper-icon-button icon="search"></paper-icon-button>
-
                     <paper-icon-button icon="help-outline"></paper-icon-button>
+                    @endunless
                     
                 </paper-toolbar>
 
