@@ -38,6 +38,7 @@
         <link href="bower_components/paper-menu/paper-menu.html" rel="import">
         <link href="bower_components/paper-menu/paper-submenu.html" rel="import">
         <link href="bower_components/paper-menu-button/paper-menu-button.html" rel="import">
+        <link href="bower_components/paper-card/paper-card.html" rel="import">
         
         <!-- Scripts -->
         <script>
