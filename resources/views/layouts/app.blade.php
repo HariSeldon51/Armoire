@@ -58,6 +58,10 @@
       
             /* CSS rules for your element */
             
+            body {
+                background-color: var(--paper-grey-100);
+            }
+            
             paper-header-panel.main {
                 background-color: #FAFAFA;
             }
