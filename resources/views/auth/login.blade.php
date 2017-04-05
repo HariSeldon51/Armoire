@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
+<paper-card heading="">
+            
+    <div class="card-content">Login as the administrator using the login details below.</div>
+    <div class="card-content">Username: webuser1</div>
+    <div class="card-content">Password: adminpass</div>
+
+</paper-card>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
