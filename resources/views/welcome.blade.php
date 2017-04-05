@@ -6,7 +6,7 @@
 
         <paper-card heading="Welcome to Armoire">
             
-            <div class="card-content">Armoire is the elegant, modular, and customizable web portal. Try out this demo of Armoire by loggin-in as an admininstrator. Login details are provided on the login page.</div>
+            <div class="card-content">Armoire is the elegant, modular, and customizable web portal. Try out this demo of Armoire by logging-in as an admininstrator. Login details are provided on the login page.</div>
             
             <div class="card-actions">
                 <paper-button onclick="gotoPage(this, '/login')">Login</paper-button>
