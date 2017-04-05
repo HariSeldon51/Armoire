@@ -4,13 +4,11 @@
 
     @if (Auth::guest())
 
-    <a href="{{ url('/login') }}" tabindex="-1">
-        <paper-button onclick="">Login</paper-button>
-    </a>
-
-    <a href="{{ url('/register') }}" tabindex="-1">
-        <paper-button class="loud" onclick="">Register</paper-button>
-    </a>
+    
+        <paper-button onclick="gotoPage(this, '/login')">Login</paper-button>
+    
+        <paper-button class="loud" onclick="gotoPage(this, '/register')">Register</paper-button>
+    
 
     @else
 

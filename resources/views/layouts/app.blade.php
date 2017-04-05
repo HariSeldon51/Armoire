@@ -44,6 +44,13 @@
             window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
             ]); ?>
+            
+            function gotoPage(el, pg) {
+                // Wait for ripple to finish.
+                el.addEventListener('transitionend', function(e) {
+                    location.href = pg;
+                });
+            }
         </script>
         
         <style is="custom-style" include="iron-flex iron-flex-alignment iron-flex-reverse iron-flex-factors iron-positioning">
