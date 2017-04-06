@@ -67,6 +67,10 @@
                 margin: 1em auto 1em;
             }
             
+            .panel {
+                padding: 1em;
+            }
+            
             paper-header-panel.main {
                 background-color: #FAFAFA;
             }
