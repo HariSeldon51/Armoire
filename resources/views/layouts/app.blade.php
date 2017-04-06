@@ -64,7 +64,7 @@
             
             .container {
                 width: 600px;
-                margin: 0 auto;
+                margin: 1em auto 1em;
             }
             
             paper-header-panel.main {
