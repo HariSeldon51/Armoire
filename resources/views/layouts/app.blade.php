@@ -62,6 +62,11 @@
                 background-color: var(--paper-grey-100);
             }
             
+            .container {
+                width: 600px;
+                margin: 0 auto;
+            }
+            
             paper-header-panel.main {
                 background-color: #FAFAFA;
             }
@@ -170,20 +175,12 @@
                     @endunless
                     
                 </paper-toolbar>
+                
+                    <div class="container">
 
-                @yield('content')
-                
-                <div class="window-view">
-                
-                    <resources>
-                        <java version="1.5+" />
-                        <jar href="SwingSet2.jar" />                    
-                    </resources>
-                    <applet-desc main-class="SwingSet2Applet" name="SwingSet" width="625" height="595">
-                        <param name="DocumentFile" value="test.3dxml" />                    
-                    </applet-desc>
-                
-                </div>
+                    @yield('content')
+                        
+                    </div>
 
                 @unless (Auth::guest())
                 
