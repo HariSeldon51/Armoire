@@ -33,7 +33,7 @@ function createTable(searchType, tableData, tableColumns) {
 function loginAuthorization() {
     //alert("Inside loginAuthorization");
     var loginUsername = document.getElementById('user-name').value;
-    var loginHashHex = CryptoJS.SHA256("idexsolutions" + document.getElementById('user-password').value);
+    var loginHashHex = CryptoJS.SHA256("armoire" + document.getElementById('user-password').value);
     var loginPassword = loginHashHex.toString(CryptoJS.enc.Base64);
     var queryString = "../php/accountAuthenticate.php?username=" + loginUsername + "&password=" + loginPassword;
         
@@ -41,7 +41,7 @@ function loginAuthorization() {
     serverRequest(queryString, function(responseMessage) {
         switch (responseMessage) {
             case "successful":
-                $("#login-fragment").replaceWith('<h3>You have successfully logged on to Idex Solutions Client Access!</h3><ul><li>You may safely close this module and remain logged-in.</li><li>Select User -> Log Out from the menu bar or close the browser window to securely end this session.</li></ul>');
+                $("#login-fragment").replaceWith('<h3>You have successfully logged into Armoire!</h3><ul><li>You may safely close this module and remain logged-in.</li><li>Select User -> Log Out from the menu bar or close the browser window to securely end this session.</li></ul>');
                 $("#login-button").replaceWith('<span onclick="logout()" id="logout-button">Log Out</span>');
                 break;
             case "invalid":
