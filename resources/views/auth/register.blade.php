@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<paper-card heading="Register">
+            
+    <div class="card-content">Register as a user. Note that only the demo administrator user is currently enabled.</div>
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -100,5 +104,6 @@
             </div>
         </div>
     </div>
-</div>
+
+</paper-card>
 @endsection
