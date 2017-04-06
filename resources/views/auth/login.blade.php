@@ -8,8 +8,6 @@
     <div class="card-content">Username: webuser1</div>
     <div class="card-content">Password: adminpass</div>
 
-</paper-card>
-
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -72,4 +70,6 @@
             </div>
         </div>
     </div>
+
+</paper-card>
 @endsection
