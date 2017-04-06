@@ -18,15 +18,6 @@
             </div>
             
         </paper-card>
-    
-        
-    
-
-    @else
-
-    <a href="{{ url('/home') }}" tabindex="-1">
-        <paper-button onclick="">Home</paper-button>
-    </a>
 
     @endif
 
