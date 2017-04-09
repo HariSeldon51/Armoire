@@ -130,10 +130,6 @@
                 
             }
             
-            .title {
-                pointer-events: auto;
-            }
-            
         </style>
         
     </head>
@@ -182,7 +178,7 @@
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                     @endunless
 
-                    <div class="title"><paper-item onclick="gotoPage(this, '/')">Armoire</paper-item></div>
+                    <paper-item class="title">Armoire</paper-item>
                     
                     @unless (Auth::guest())
                     <paper-icon-button icon="search"></paper-icon-button>
