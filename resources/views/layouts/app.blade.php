@@ -130,6 +130,10 @@
                 
             }
             
+            .title {
+                pointer-events: auto;
+            }
+            
         </style>
         
     </head>
