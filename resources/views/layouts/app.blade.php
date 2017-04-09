@@ -67,11 +67,28 @@
             
             body {
                 background-color: var(--paper-grey-100);
+                height: calc(100vh - 64px);
+            }
+            
+            .no-link {
+                color: #FFF;
+            }
+            
+            .welcome {
+                background: url(../img/welcomeBG.jpg) no-repeat center bottom fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
             }
             
             .container {
-                width: 600px;
-                margin: 1em auto 1em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
             }
             
             .panel {
@@ -126,15 +143,17 @@
                 color: #ffffff;
                 
                 height: 225px;
-                box-sizing: border-box;
-                
+                box-sizing: border-box; 
             }
             
         </style>
         
     </head>
     
-    <body fullbleed unresolved> <!-- Tells Polymer the body should take up the whole page and not be displayed until all items are resolved. -->
+    <body fullbleed unresolved
+        @if (Auth::guest())
+            class="welcome"
+        @endif > <!-- Tells Polymer the body should take up the whole page and not be displayed until all items are resolved. -->
         
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -170,8 +189,9 @@
             </paper-header-panel>
             
             <paper-header-panel class="flex main" main>
-        @endunless
-            
+                
+            @endunless
+        
                 <paper-toolbar class="primary-color">
 
                     @unless (Auth::guest())
@@ -185,15 +205,21 @@
                     <paper-icon-button icon="help-outline"></paper-icon-button>
                     @endunless
                     
+                    @if (Auth::guest())
+                    <a href="/" class="no-link" tabindex="-1">
+                        <paper-icon-button icon="home"></paper-icon-button>
+                    </a>
+                    @endif
+                    
                 </paper-toolbar>
                 
-                    <div class="container">
+                <div class="container">
 
-                    @yield('content')
+                @yield('content')
                         
-                    </div>
-
-                @unless (Auth::guest())
+                </div>
+                
+            @unless (Auth::guest())
                 
             </paper-header-panel>
                 
