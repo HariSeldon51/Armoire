@@ -6,7 +6,7 @@
         
     body {
         background-color: var(--paper-grey-100);
-        height: calc(100vh - 64px);
+        height: calc(100vh - 56px);
         min-width: 240px;
     }
 
@@ -98,6 +98,18 @@
 
         paper-card {
             width: 24em;
+        }
+
+    }
+
+    @media only screen and (min-width: 601px) {
+
+    /* ====================
+        For Paper-Toolbar (normal size)
+       ==================== */
+
+        body {
+            height: calc(100vh - 64px);
         }
 
     }
