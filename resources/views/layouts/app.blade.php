@@ -178,7 +178,7 @@
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                     @endunless
 
-                    <paper-item class="title" onclick="gotoPage(this, '/')">Armoire</paper-item>
+                    <div class="title"><paper-item onclick="gotoPage(this, '/')">Armoire</paper-item></div>
                     
                     @unless (Auth::guest())
                     <paper-icon-button icon="search"></paper-icon-button>
