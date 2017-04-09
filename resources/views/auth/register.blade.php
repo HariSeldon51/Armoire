@@ -3,10 +3,8 @@
 @section('content')
 
 <paper-card heading="Register">
-            
-    <div class="card-content">Register as a user. Note that only the demo administrator user is currently enabled.</div>
 
-    <div class="row">
+    <div class="row card-content">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
