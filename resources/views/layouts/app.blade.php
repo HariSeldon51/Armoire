@@ -14,6 +14,7 @@
         
         <!-- The main css stylesheet -->
         <link href="bower_components/paper-styles/default-theme.html" rel="import">
+        <link href="elements/armoire-theme.html" rel="import">
 
         <!-- Modernizr script import -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -61,121 +62,7 @@
             }
         </script>
         
-        <style is="custom-style" include="iron-flex iron-flex-alignment iron-flex-reverse iron-flex-factors iron-positioning">
-      
-            /* CSS rules for your element */
-            
-            body {
-                background-color: var(--paper-grey-100);
-                height: calc(100vh - 64px);
-                min-width: 360px;
-            }
-            
-            .no-link {
-                color: #FFF;
-            }
-            
-            .welcome {
-                background: url(../img/welcomeBG.jpg) no-repeat center bottom fixed;
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
-            }
-            
-            .container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-            }
-            
-            .panel {
-                padding: 1em;
-            }
-            
-            paper-header-panel.main {
-                background-color: #FAFAFA;
-            }
-            
-            .paper-submenu > paper-menu {
-                margin-left: 1em;
-            }
-            
-            paper-submenu < paper-menu.main-menu {
-                margin-left: 0;
-            }
-            
-            paper-item {
-                cursor: pointer;
-            }
-            
-            paper-item.iron-selected {
-                color: #009688;
-                font-weight: normal;
-            }
-            
-            paper-menu > * {
-                cursor: pointer;
-            }
-            
-            iron-icon {
-                margin-right: 1em;
-            }
-            
-            paper-button {
-                color: white;
-                text-decoration: none;
-                background-color: var(--primary-color);
-            }
-            
-            paper-button.loud {
-                background-color: var(--accent-color);
-            }
-            
-            .label {
-                padding: 1em;
-            }
-
-            #nav-drawer {
-                background-image: url('img/navdrawerBG.png');
-                color: #ffffff;
-                
-                height: 225px;
-                box-sizing: border-box; 
-            }
-            
-            paper-card {
-                width: 20em;
-            }
-            
-            @media only screen and (min-width: 480px) {
-
-            /* ====================
-                TABLET: Only
-               ==================== */
-
-                paper-card {
-                    width: 26em;
-                }
-
-            }
-
-            @media only screen and (min-width: 960px) {
-
-            /* ====================
-                TABLET: Only
-               ==================== */
-
-                paper-card {
-                    width: 32em;
-                }
-
-            }
-            
-        </style>
+        <style is="custom-style" include="iron-flex iron-flex-alignment iron-flex-reverse iron-flex-factors iron-positioning armoire-theme"></style>
         
     </head>
     
