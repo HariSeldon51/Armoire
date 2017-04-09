@@ -68,10 +68,7 @@
             body {
                 background-color: var(--paper-grey-100);
                 height: calc(100vh - 64px);
-            }
-            
-            paper-card {
-                width: 25vw;
+                min-width: 360px;
             }
             
             .no-link {
@@ -148,6 +145,34 @@
                 
                 height: 225px;
                 box-sizing: border-box; 
+            }
+            
+            paper-card {
+                width: 20em;
+            }
+            
+            @media only screen and (min-width: 480px) {
+
+            /* ====================
+                TABLET: Only
+               ==================== */
+
+                paper-card {
+                    width: 26em;
+                }
+
+            }
+
+            @media only screen and (min-width: 960px) {
+
+            /* ====================
+                TABLET: Only
+               ==================== */
+
+                paper-card {
+                    width: 32em;
+                }
+
             }
             
         </style>
