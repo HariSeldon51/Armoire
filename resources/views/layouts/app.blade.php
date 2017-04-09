@@ -70,6 +70,10 @@
                 height: calc(100vh - 64px);
             }
             
+            paper-card {
+                width: 25vw;
+            }
+            
             .no-link {
                 color: #FFF;
             }
