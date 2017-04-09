@@ -114,6 +114,12 @@
                     @unless (Auth::guest())
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                     @endunless
+                    
+                    @if (Auth::guest())
+                    <a href="/" class="no-link" tabindex="-1">
+                        <paper-icon-button icon="home"></paper-icon-button>
+                    </a>
+                    @endif
 
                     <paper-item class="title">Armoire</paper-item>
                     
@@ -121,12 +127,6 @@
                     <paper-icon-button icon="search"></paper-icon-button>
                     <paper-icon-button icon="help-outline"></paper-icon-button>
                     @endunless
-                    
-                    @if (Auth::guest())
-                    <a href="/" class="no-link" tabindex="-1">
-                        <paper-icon-button icon="home"></paper-icon-button>
-                    </a>
-                    @endif
                     
                 </paper-toolbar>
                 
