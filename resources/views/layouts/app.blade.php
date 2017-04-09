@@ -47,10 +47,17 @@
             ]); ?>
             
             function gotoPage(el, pg) {
-                // Wait for ripple to finish.
-                el.addEventListener('transitionend', function(e) {
+                
+                if (el.tagName.toLowerCase() == "paper-button") {
+                
+                    // Wait for ripple to finish.
+                    el.addEventListener('transitionend', function(e) {
+                        location.href = pg;
+                    });
+                    
+                } else if (el.tagName.toLowerCase() == "paper-item") {
                     location.href = pg;
-                });
+                }
             }
         </script>
         
@@ -171,7 +178,7 @@
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                     @endunless
 
-                    <paper-item onclick="gotoPage(this, '/')">Armoire</paper-item>
+                    <paper-item class="title" onclick="gotoPage(this, '/')">Armoire</paper-item>
                     
                     @unless (Auth::guest())
                     <paper-icon-button icon="search"></paper-icon-button>
