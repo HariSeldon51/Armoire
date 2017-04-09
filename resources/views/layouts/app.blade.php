@@ -67,10 +67,7 @@
         
     </head>
     
-    <body fullbleed unresolved
-        @if (Auth::guest())
-            class="welcome"
-        @endif > <!-- Tells Polymer the body should take up the whole page and not be displayed until all items are resolved. -->
+    <body fullbleed unresolved> <!-- Tells Polymer the body should take up the whole page and not be displayed until all items are resolved. -->
         
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -130,7 +127,12 @@
                     
                 </paper-toolbar>
                 
-                <div class="container">
+                <div class="container 
+                
+                @if (Auth::guest())
+                    welcome
+                @endif 
+                ">
 
                 @yield('content')
                         
