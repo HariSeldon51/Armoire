@@ -171,7 +171,7 @@
                     <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
                     @endunless
 
-                    <span class="title">Armoire</span>
+                    <paper-item onclick="gotoPage(this, '/')">Armoire</paper-item>
                     
                     @unless (Auth::guest())
                     <paper-icon-button icon="search"></paper-icon-button>
