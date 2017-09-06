@@ -81,7 +81,7 @@ header {
     background-color: #eee;
     box-shadow: 0 -2px 16px #333;
     z-index: 2;
-    position: relative;    
+    position: relative;
     background-image: linear-gradient(#eee -10%, #fff 5%, #eee 15%, #eee 85%, #bba 110%);
 }
 
@@ -151,8 +151,8 @@ p {
    ========================================================================== */
 
 @media screen and (max-width: 1300px) {
-    
-    
+
+
 }
 
 @media print,

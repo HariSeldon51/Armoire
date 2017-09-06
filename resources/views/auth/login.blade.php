@@ -2,8 +2,8 @@
 
 @section('content')
 
-<paper-card heading="Login">
-            
+<paper-card heading="Login" class="dialog">
+
     <div class="card-content">Use the login credentials you provided when registering your account, or use the login credentials below if you would like to try out the demo administrator account.</div>
     <div class="card-content">Username: webuser1<br />Password: adminpass</div>
 

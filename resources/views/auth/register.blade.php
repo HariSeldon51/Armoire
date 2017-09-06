@@ -2,7 +2,7 @@
 
 @section('content')
 
-<paper-card heading="Register">
+<paper-card heading="Register" class="dialog">
 
     <div class="row card-content">
         <div class="col-md-8 col-md-offset-2">
@@ -24,7 +24,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
                             <label for="lastname" class="col-md-4 control-label">Last Name</label>
 
@@ -38,7 +38,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                             <label for="username" class="col-md-4 control-label">Username</label>
 
