@@ -2,13 +2,13 @@
 
 @section('content')
 
-<paper-card heading="Register" class="dialog">
+<paper-card heading="Register Your Account" class="dialog">
 
     <div class="row card-content">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" id="register" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
@@ -89,17 +89,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="card-actions">
+        <paper-button class="loud"><button type="submit" class="btn btn-primary" form="register">REGISTER</button></paper-button>
+        <paper-button onclick="gotoPage(this, '/')">Back</paper-button>
     </div>
 
 </paper-card>

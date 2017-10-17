@@ -50,6 +50,10 @@ fieldset {
     padding: 0;
 }
 
+input {
+    color: #22292b;
+}
+
 textarea {
     resize: vertical;
 }

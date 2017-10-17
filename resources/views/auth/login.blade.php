@@ -2,43 +2,35 @@
 
 @section('content')
 
-<paper-card heading="Login" class="dialog">
+<paper-card heading="Log In" class="dialog">
 
     <div class="card-content">Use the login credentials you provided when registering your account, or use the login credentials below if you would like to try out the demo administrator account.</div>
     <div class="card-content">Username: webuser1<br />Password: adminpass</div>
+
+    @if ($errors->has('password') || $errors->has('username'))
+        <div class="help-block">
+            <strong>{{ $errors->first() }}</strong>
+        </div>
+    @endif
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}" id="login">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label for="username" class="col-md-4 control-label">Username</label>
-
                             <div class="col-md-6">
                                 <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
-
-                                @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label for="password" class="col-md-4 control-label">Password</label>
-
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
                             </div>
                         </div>
 
@@ -54,19 +46,18 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
-                                </a>
+                                <a href="/password/reset">Forgot Password</a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="card-actions">
+        <paper-button class="loud"><button type="submit" class="btn btn-primary" form="login">LOGIN</button></paper-button>
+        <paper-button onclick="gotoPage(this, '/')">Back</paper-button>
     </div>
 
 </paper-card>

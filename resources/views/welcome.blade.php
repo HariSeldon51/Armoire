@@ -21,8 +21,8 @@
             </div>
 
             <div class="card-actions">
-                <paper-button onclick="gotoPage(this, '/login')">Login</paper-button>
-                <paper-button class="loud" onclick="gotoPage(this, '/register')">Register</paper-button>
+                <paper-button class="loud" onclick="gotoPage(this, '/login')">Login</paper-button>
+                <paper-button onclick="gotoPage(this, '/register')">Register</paper-button>
             </div>
 
         </paper-card>

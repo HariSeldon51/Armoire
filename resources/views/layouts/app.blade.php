@@ -43,7 +43,7 @@
         <link href="bower_components/paper-card/paper-card.html" rel="import">
 
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nova+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito|Nova+Round" rel="stylesheet">
 
         <!-- Scripts -->
         <script>
@@ -69,6 +69,15 @@
         <style is="custom-style" include="iron-flex iron-flex-alignment iron-flex-reverse iron-flex-factors iron-positioning armoire-theme"></style>
 
         <style is="custom-style">
+
+            a {
+                color: #2770a2;
+            }
+
+            a:visited {
+                color: #a25a27;
+            }
+
             .big {
                 --iron-icon-height: 32px;
                 --iron-icon-width: 32px;
@@ -84,9 +93,6 @@
 
             .dialog {
                 --paper-card-header-color: #fff;
-                --paper-card-header: {
-                    background-color: #009688;
-                }
             }
 
             .logo {
@@ -101,6 +107,7 @@
 
             .logo-large {
                 width: 5em;
+                fill: #ffffff;
             }
 
             .logo-title {
@@ -111,8 +118,15 @@
                 text-transform: uppercase;
             }
 
+            paper-card {
+                --paper-card-header-text: {
+                    font-family: 'Nunito', sans-serif;                    
+                }
+            }
+            
+
             .cls-1 {
-                fill: #009688;
+                fill: #26a69a;
             }
 
             .flex {
